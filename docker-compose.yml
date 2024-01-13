@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  fronend:
+    build:
+      context: .
+      dockerfile: Dockerfile                     
+    image: ${DOCKER_IMAGE_NAME:-ahmadsofienimg}:${TAG:-latest}
+    container_name: ${DOCKER_CONTAINER_NAME:-ahmadSofienContainer}
+    ports:
+      - ${APP_PORT:-3000}:3000    
+    restart: unless-stopped
+
